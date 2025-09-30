@@ -214,3 +214,6 @@ mlruns/
 *.pt
 *.pth
 *.safetensors
+
+# large data
+ml-25m/
