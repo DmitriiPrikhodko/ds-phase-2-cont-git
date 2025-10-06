@@ -29,6 +29,7 @@ def recommend_for_user_id_from_valid(
     )
     # print(user_tensor)
     # print(item_tensor)
+    model.to(device)
     model.eval()
     with torch.inference_mode():
         preds = model(user_tensor, item_tensor)
@@ -75,7 +76,7 @@ def recommend_for_user_id_unwatched(
     item_tensor = torch.tensor(
         unwatched_df["movie_id"].to_numpy(), dtype=torch.long, device=device
     )
-
+    model.to(device=device)
     model.eval()
     with torch.inference_mode():
         preds = model(user_tensor, item_tensor)
